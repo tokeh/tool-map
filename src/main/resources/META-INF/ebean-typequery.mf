@@ -1,0 +1,2 @@
+packages: de.htwg.seamless.app.domain.query
+
