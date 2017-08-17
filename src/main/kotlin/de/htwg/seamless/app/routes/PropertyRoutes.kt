@@ -10,7 +10,7 @@ class PropertyRoutes {
 
     init { initializeRoutes() }
 
-    fun initializeRoutes() {
+    private fun initializeRoutes() {
         path("/property") {
 
             // create

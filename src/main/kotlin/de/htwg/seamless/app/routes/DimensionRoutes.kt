@@ -10,7 +10,7 @@ class DimensionRoutes {
 
     init { initializeRoutes() }
 
-    fun initializeRoutes() {
+    private fun initializeRoutes() {
         path("/dimension") {
 
             // create

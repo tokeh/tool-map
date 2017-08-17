@@ -5,15 +5,17 @@ import com.fasterxml.jackson.databind.JsonMappingException
 import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import de.htwg.seamless.app.routes.DimensionRoutes
-import de.htwg.seamless.app.routes.PropertyRoutes
-import de.htwg.seamless.app.routes.SearchRoutes
-import de.htwg.seamless.app.routes.ToolRoutes
+import com.github.jknack.handlebars.Handlebars
+import com.github.jknack.handlebars.Template
+import de.htwg.seamless.app.domain.Tool
+import de.htwg.seamless.app.routes.*
 import de.htwg.seamless.app.util.Util
 import io.ebean.EbeanServerFactory
 import io.ebean.config.ServerConfig
+import spark.ModelAndView
 import spark.Spark
 import spark.Spark.*
+import spark.template.handlebars.HandlebarsTemplateEngine
 import java.io.FileInputStream
 import java.io.IOException
 import java.util.*
@@ -40,6 +42,7 @@ fun main(args: Array<String>) {
     DimensionRoutes()
     PropertyRoutes()
     SearchRoutes()
+    PageRoutes()
 
     // Exception handling
     Spark.exception(JsonParseException::class.java, { _, _, response ->

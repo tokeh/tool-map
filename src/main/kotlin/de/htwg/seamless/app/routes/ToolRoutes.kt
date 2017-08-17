@@ -9,7 +9,7 @@ class ToolRoutes {
 
     init { this.initializeRoutes() }
 
-    fun initializeRoutes() {
+    private fun initializeRoutes() {
         path("/tool") {
 
             // create

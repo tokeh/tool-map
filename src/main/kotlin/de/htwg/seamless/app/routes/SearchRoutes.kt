@@ -10,10 +10,10 @@ class SearchRoutes {
 
     init { initializeRoutes() }
 
-    fun initializeRoutes() {
+    private fun initializeRoutes() {
         get("/search") { req, _ ->
-            val searchKeywords: SearchKeywords = mapper.readValue<SearchKeywords>(req.body())
-            val tools = mutableListOf<Tool>()
+            val searchKeywords: SearchKeywords = mapper.readValue(req.body())
+            val tools: MutableList<Tool> = mutableListOf()
             searchKeywords.properties.forEach { tools.addAll(Tool.where().properties.name.contains(it).findList()) }
             searchKeywords.dimensions.forEach { tools.addAll(Tool.where().properties.dimensions.name.contains(it).findList()) }
 
