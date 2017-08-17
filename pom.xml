@@ -20,6 +20,7 @@
 
         <sparkjava.version>2.6.0</sparkjava.version>
         <spark.kotlin.version>1.0.0-alpha</spark.kotlin.version>
+        <sparkjava.handlebars.version>2.5.5</sparkjava.handlebars.version>
 
         <ebean.version>10.4.2</ebean.version>
         <ebean.querybean.version>10.3.1</ebean.querybean.version>
@@ -62,6 +63,12 @@
             <groupId>com.sparkjava</groupId>
             <artifactId>spark-kotlin</artifactId>
             <version>${spark.kotlin.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sparkjava</groupId>
+            <artifactId>spark-template-handlebars</artifactId>
+            <version>${sparkjava.handlebars.version}</version>
         </dependency>
 
         <!-- Ebean -->
