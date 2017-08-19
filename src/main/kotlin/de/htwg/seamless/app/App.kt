@@ -5,17 +5,10 @@ import com.fasterxml.jackson.databind.JsonMappingException
 import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
-import com.github.jknack.handlebars.Handlebars
-import com.github.jknack.handlebars.Template
-import de.htwg.seamless.app.domain.Tool
 import de.htwg.seamless.app.routes.*
-import de.htwg.seamless.app.util.Util
 import io.ebean.EbeanServerFactory
 import io.ebean.config.ServerConfig
-import spark.ModelAndView
-import spark.Spark
 import spark.Spark.*
-import spark.template.handlebars.HandlebarsTemplateEngine
 import java.io.FileInputStream
 import java.io.IOException
 import java.util.*
@@ -45,25 +38,20 @@ fun main(args: Array<String>) {
     PageRoutes()
 
     // Exception handling
-    Spark.exception(JsonParseException::class.java, { _, _, response ->
+    exception(JsonParseException::class.java, { ex, _, response ->
         response.status(500)
-        response.body("JSON parsing failed")
+        response.body("JSON parsing failed: " + ex.message)
     })
 
-    Spark.exception(JsonMappingException::class.java, { _, _, response ->
+    exception(JsonMappingException::class.java, { ex, _, response ->
         response.status(500)
-        response.body("JSON mapping failed")
+        response.body("JSON mapping failed: " + ex.message)
     })
 
-    Spark.exception(IOException::class.java, { _, _, response ->
+    exception(IOException::class.java, { ex, _, response ->
         response.status(500)
-        response.body("Processing of request failed")
+        response.body("Processing of request failed: " + ex.message)
     })
-
-    // Test data creation
-    get("/test") { _, _ ->
-        Util.createTestData()
-    }
 }
 
 fun initialize() {
