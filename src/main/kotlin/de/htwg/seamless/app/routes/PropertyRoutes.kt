@@ -3,7 +3,6 @@ package de.htwg.seamless.app.routes
 import com.fasterxml.jackson.module.kotlin.readValue
 import de.htwg.seamless.app.domain.Property
 import de.htwg.seamless.app.mapper
-import de.htwg.seamless.app.util.Util
 import spark.Spark.*
 
 class PropertyRoutes {
