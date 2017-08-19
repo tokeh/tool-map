@@ -65,6 +65,7 @@
             <version>${spark.kotlin.version}</version>
         </dependency>
 
+        <!-- Handlebars -->
         <dependency>
             <groupId>com.sparkjava</groupId>
             <artifactId>spark-template-handlebars</artifactId>
