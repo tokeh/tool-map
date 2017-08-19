@@ -1,5 +1,8 @@
 package de.htwg.seamless.app.routes
 
+import de.htwg.seamless.app.domain.Dimension
+import de.htwg.seamless.app.domain.Tool
+import de.htwg.seamless.app.util.TemplateDataContainer
 import spark.ModelAndView
 import spark.Spark.*
 import spark.template.handlebars.HandlebarsTemplateEngine
@@ -10,12 +13,10 @@ class PageRoutes {
 
     private fun initializeRoutes() {
         get("/toolMap") { _, _ ->
-            val jsonModel = ""
-
-
+            val data = TemplateDataContainer(Tool.all(), Dimension.all(), Tool.all())
 
             HandlebarsTemplateEngine().render(
-                    ModelAndView(jsonModel, "/map_template.hbs")
+                    ModelAndView(data, "map_template.hbs")
             )
         }
     }
