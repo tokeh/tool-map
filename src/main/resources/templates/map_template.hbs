@@ -17,6 +17,12 @@
 
     <body>
         <h1>Seamless Learning Tool Map</h1>
+
+        <div class="md-form">
+            <input type="text" id="filter_search" class="form-control" oninput="filter()">
+            <label for="filter_search" class="">Filter keywords</label>
+        </div>
+
         {{> partials/map_dimensions_partial.hbs}}
         {{> partials/map_properties_partial.hbs}}
         {{> partials/map_favourites_partial.hbs}}
