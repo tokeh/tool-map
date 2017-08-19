@@ -1,5 +1,5 @@
 <h1>Dimensions partial</h1>
 
 {{#each this.dimensions}}
-    <div>{{name}}</div>
+    <button type="button" class="btn btn-outline-default waves-effect" onclick="toggleFilterButtonState(this)">{{name}}</button>
 {{/each}}
