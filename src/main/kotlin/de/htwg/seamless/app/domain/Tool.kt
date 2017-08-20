@@ -29,9 +29,38 @@ data class Tool(
 
         @NotNull
         @OneToMany(cascade = arrayOf(CascadeType.ALL))
-        val ratings: MutableSet<Rating> = mutableSetOf()
+        val ratings: MutableSet<Rating> = mutableSetOf(),
+
+        @NotNull
+        var rating: Int = 0
 
 ) : Model() {
 
     companion object : ToolFinder()
+
+    fun getDimensionsWithProperties(): Map<String, MutableList<String>> {
+        val map = hashMapOf<String, MutableList<String>>()
+
+        for ((name) in Dimension.all()) {
+            map.put(name, mutableListOf())
+        }
+
+        for ((propertyName, propertyDimensions) in Property.all()) {
+            for ((dimensionName) in propertyDimensions) {
+                map[dimensionName]?.add(propertyName)
+            }
+        }
+
+        return map
+    }
+
+    fun updateRating() {
+        var stars = 0
+
+        this.ratings.map {
+            stars += it.stars
+        }
+
+        this.rating = stars / this.ratings.size
+    }
 }
