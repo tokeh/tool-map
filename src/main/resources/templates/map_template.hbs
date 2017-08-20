@@ -7,7 +7,7 @@
 
         <div id="main-container" class="container-fluid">
             <div class="row">
-                <div id="filter-col" class="col-sm-9">
+                <div id="filter-col" class="col-md-9">
                     <div class="row">
                         <h1>Seamless Learning Tool Map</h1>
                         This is a Seamless Learning Tool Map. It provides information about tool that can be used to
@@ -30,14 +30,12 @@
                     </div>
                 </div>
 
-                <div id="fav-col" class="col-sm-3">
+                <div id="fav-col" class="col-md-3">
                     {{> partials/map_favourites_partial.hbs}}
                 </div>
             </div>
 
-            <div class="row">
-                {{> partials/map_tool_partial.hbs}}
-            </div>
+            {{> partials/map_tool_partial.hbs}}
         </div>
 
         {{> partials/scripts.hbs}}

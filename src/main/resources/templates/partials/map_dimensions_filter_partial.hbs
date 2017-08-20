@@ -1,9 +1,7 @@
-<div class="card">
-    <div class="card-body">
-        <h4 class="card-title">Dimensions</h4>
-        {{#each this.dimensions}}
-            <button type="button" class="btn btn-filter btn-outline-default waves-effect"
-                    onclick="toggle_filter_button_state(this)">{{name}}</button>
-        {{/each}}
-    </div>
+<div>
+    <h3>Dimensions</h3>
+    {{#each this.dimensions}}
+        <button type="button" class="btn btn-filter btn-outline-default waves-effect"
+                onclick="toggle_filter_button_state(this)">{{name}}</button>
+    {{/each}}
 </div>

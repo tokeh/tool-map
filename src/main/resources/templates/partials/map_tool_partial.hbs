@@ -1,7 +1,31 @@
-<div>
-    <h1>Map partial</h1>
+<div id="tool-map">
+    <h3>Tool Map</h3>
+    <div class="row">
+        <div class="col-md-2 d-none d-md-block">
+            Tool Name
+        </div>
+        {{#each this.dimensions}}
+            <div class="col-md d-none d-md-block">{{name}}</div>
+        {{/each}}
+    </div>
+
     {{#each this.tools}}
-        <button type="button" class="btn btn-filter btn-outline-default waves-effect "
-                onclick="toggle_filter_button_state(this)">{{toolName}}</button>
+        <div class="row">
+            <div class="col-md-2 card">
+                <div class="card-body">
+                    <div class="card-title">
+                        <h5>{{toolName}}</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-10 d-none d-md-block card">
+                <div class="card-body">
+                    {{#each properties}}
+                        {{name}}
+                    {{/each}}
+                </div>
+            </div>
+        </div>
     {{/each}}
 </div>
