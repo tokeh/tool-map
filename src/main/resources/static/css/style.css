@@ -1,1 +1,15 @@
-/* YOUR CUSTOM STYLES */
+#filter-col, #fav-col {
+    padding: 2%;
+}
+
+#filter-keywords {
+    margin-top: 3em;
+}
+
+#dimension-filter, #property-filter {
+    margin-top: 1em;
+}
+
+.fav-card {
+    margin-top: 1em;
+}

@@ -5,9 +5,9 @@
     <body>
         {{> partials/header.hbs}}
 
-        <div class="container-fluid" style="margin: 2%">
+        <div id="main-container" class="container-fluid">
             <div class="row">
-                <div class="col-sm-9">
+                <div id="filter-col" class="col-sm-9">
                     <div class="row">
                         <h1>Seamless Learning Tool Map</h1>
                         This is a Seamless Learning Tool Map. It provides information about tool that can be used to
@@ -16,26 +16,26 @@
                         enter keywords into the search field. The three best rated tools can be seen on the right.
                     </div>
 
-                    <div class="row md-form" style="margin-top: 1%">
+                    <div id="filter-keywords" class="row md-form">
                         <input type="text" id="filter_search" class="form-control" oninput="filter()">
                         <label for="filter_search" class="">Filter keywords</label>
                     </div>
 
-                    <div class="row" style="margin-top: 1%">
-                        {{> partials/map_dimensions_partial.hbs}}
+                    <div id="dimension-filter" class="row">
+                        {{> partials/map_dimensions_filter_partial.hbs}}
                     </div>
 
-                    <div class="row" style="margin-top: 1%">
-                        {{> partials/map_properties_partial.hbs}}
+                    <div id="property-filter" class="row">
+                        {{> partials/map_properties_filter_partial.hbs}}
                     </div>
                 </div>
 
-                <div class="col-sm-3">
+                <div id="fav-col" class="col-sm-3">
                     {{> partials/map_favourites_partial.hbs}}
                 </div>
             </div>
 
-            <div class="row" style="margin-top: 1%">
+            <div class="row">
                 {{> partials/map_tool_partial.hbs}}
             </div>
         </div>

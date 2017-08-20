@@ -1,5 +1,10 @@
 <h1>Favourite Tools</h1>
 
 {{#each this.favourites}}
-    <div>{{toolName}}</div>
+    <div class="card fav-card">
+        <div class="card-body">
+            <h5 class="card-title">{{toolName}}</h5>
+            Rating: 3
+        </div>
+    </div>
 {{/each}}
