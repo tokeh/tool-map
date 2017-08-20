@@ -13,11 +13,18 @@ class PageRoutes {
     init { initializeRoutes() }
 
     private fun initializeRoutes() {
-        get("/toolMap") { _, _ ->
-            val data = TemplateDataContainer(Tool.all(), Dimension.all(), Property.all(), Tool.all())
+        get("/") { _, _ ->
+            val data = TemplateDataContainer(hashMapOf(Pair("home", true)),
+                    Tool.all(), Dimension.all(), Property.all(), Tool.all())
 
             HandlebarsTemplateEngine().render(
                     ModelAndView(data, "map_template.hbs")
+            )
+        }
+
+        get("/info") { _, _ ->
+            HandlebarsTemplateEngine().render(
+                    ModelAndView(TemplateDataContainer(hashMapOf(Pair("info", true))), "info_template.hbs")
             )
         }
     }
