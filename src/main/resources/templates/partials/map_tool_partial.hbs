@@ -1,5 +1,7 @@
-<h1>Map partial</h1>
-
-{{#each this.tools}}
-    <button type="button" class="btn btn-filter btn-outline-default waves-effect " onclick="toggle_filter_button_state(this)">{{toolName}}</button>
-{{/each}}
+<div>
+    <h1>Map partial</h1>
+    {{#each this.tools}}
+        <button type="button" class="btn btn-filter btn-outline-default waves-effect "
+                onclick="toggle_filter_button_state(this)">{{toolName}}</button>
+    {{/each}}
+</div>
