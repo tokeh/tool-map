@@ -6,10 +6,18 @@
     margin-top: 3em;
 }
 
-#dimension-filter, #property-filter {
+#dimension-filter {
+    margin-top: 1em;
+}
+
+#property-filter {
     margin-top: 1em;
 }
 
 .fav-card {
     margin-top: 1em;
+}
+
+#tool-map {
+
 }
