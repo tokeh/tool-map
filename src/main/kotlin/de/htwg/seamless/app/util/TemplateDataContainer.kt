@@ -5,11 +5,13 @@ import de.htwg.seamless.app.domain.Property
 import de.htwg.seamless.app.domain.Tool
 
 data class TemplateDataContainer(
-        val tools: List<Tool>,
+        val nav: Map<String, Boolean> = hashMapOf(),
 
-        val dimensions: List<Dimension>,
+        val tools: List<Tool> = listOf(),
 
-        val properties: List<Property>,
+        val dimensions: List<Dimension> = listOf(),
 
-        val favourites: List<Tool>
+        val properties: List<Property> = listOf(),
+
+        val favourites: List<Tool> = listOf()
 )
