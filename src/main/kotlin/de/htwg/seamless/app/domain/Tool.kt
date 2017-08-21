@@ -1,5 +1,6 @@
 package de.htwg.seamless.app.domain
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import de.htwg.seamless.app.domain.finder.ToolFinder
 import io.ebean.Model
 import javax.persistence.*
@@ -38,18 +39,31 @@ data class Tool(
 
     companion object : ToolFinder()
 
-    fun mapView(): MutableList<MutableList<String>> {
-        val mapView = mutableListOf<MutableList<String>>()
+    init {
+        this.updateMapView()
+        this.updateRating()
+    }
+
+    @JsonIgnore
+    @Transient
+    var mapView = mutableListOf<MutableList<Dimension>>()
+
+    fun updateMapView() {
+        this.mapView = this.createMapView()
+    }
+
+    private fun createMapView(): MutableList<MutableList<Dimension>> {
+        val mapView = mutableListOf<MutableList<Dimension>>()
 
         //val dimensions = Dimension.where().orderBy("index").findList()
 
         for (idx in 0 until Dimension.all().size) {
-            mapView[idx] = mutableListOf()
+            mapView.add(mutableListOf())
         }
 
         this.properties.forEach {
-            for ((index, name) in it.dimensions) {
-                mapView[index].add(name)
+            for (dimension in it.dimensions) {
+                mapView[dimension.index].add(dimension)
             }
         }
 
@@ -63,6 +77,8 @@ data class Tool(
             stars += it.stars
         }
 
-        this.rating = stars / this.ratings.size
+        if (this.ratings.size > 0) {
+            this.rating = stars / this.ratings.size
+        }
     }
 }
