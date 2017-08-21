@@ -21,9 +21,15 @@
 
             <div class="col-md-10 d-none d-md-block card">
                 <div class="card-body">
-                    {{#each properties}}
-                        {{name}}
-                    {{/each}}
+                    <div class="row">
+                        {{#each mapView}}
+                            <div class="col-md d-none d-md-block">
+                                {{#each this}}
+                                    {{name}}
+                                {{/each}}
+                            </div>
+                        {{/each}}
+                    </div>
                 </div>
             </div>
         </div>
