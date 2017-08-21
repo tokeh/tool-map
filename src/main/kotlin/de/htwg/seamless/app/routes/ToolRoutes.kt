@@ -29,6 +29,7 @@ class ToolRoutes {
                     "Tool not found"
 
                 } else {
+                    tool.updateRating()
                     tool.update()
                     res.status(200)
                     "Tool updated"
