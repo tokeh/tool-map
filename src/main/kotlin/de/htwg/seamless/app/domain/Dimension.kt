@@ -12,6 +12,9 @@ data class Dimension(
 
         @Id
         @NotNull
+        val index: Int,
+
+        @NotNull
         @Size(max = 200)
         val name: String,
 
