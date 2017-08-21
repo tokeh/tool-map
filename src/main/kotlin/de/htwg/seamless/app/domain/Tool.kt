@@ -38,26 +38,28 @@ data class Tool(
 
     companion object : ToolFinder()
 
-    fun getDimensionsWithProperties(): Map<String, MutableList<String>> {
-        val map = hashMapOf<String, MutableList<String>>()
+    fun mapView(): MutableList<MutableList<String>> {
+        val mapView = mutableListOf<MutableList<String>>()
 
-        for ((name) in Dimension.all()) {
-            map.put(name, mutableListOf())
+        //val dimensions = Dimension.where().orderBy("index").findList()
+
+        for (idx in 0 until Dimension.all().size) {
+            mapView[idx] = mutableListOf()
         }
 
-        for ((propertyName, propertyDimensions) in Property.all()) {
-            for ((dimensionName) in propertyDimensions) {
-                map[dimensionName]?.add(propertyName)
+        this.properties.forEach {
+            for ((index, name) in it.dimensions) {
+                mapView[index].add(name)
             }
         }
 
-        return map
+        return mapView
     }
 
     fun updateRating() {
         var stars = 0
 
-        this.ratings.map {
+        this.ratings.forEach {
             stars += it.stars
         }
 
