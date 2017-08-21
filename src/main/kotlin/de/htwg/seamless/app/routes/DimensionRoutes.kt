@@ -21,10 +21,10 @@ class DimensionRoutes {
             }
 
             // update
-            put("/:name") { req, res ->
+            put("/:index") { req, res ->
                 mapper.readValue<Dimension>(req.body()).update()
 
-                val dimension: Dimension? = Dimension.byId(req.params("name"))
+                val dimension: Dimension? = Dimension.byId(req.params("index"))
 
                 if (dimension == null) {
                     res.status(404)
@@ -38,8 +38,8 @@ class DimensionRoutes {
             }
 
             // delete
-            delete("/:name") { req, res ->
-                val dimension: Dimension? = Dimension.byId(req.params("name"))
+            delete("/:index") { req, res ->
+                val dimension: Dimension? = Dimension.byId(req.params("index"))
 
                 if (dimension == null) {
                     res.status(404)
@@ -61,8 +61,8 @@ class DimensionRoutes {
             }
 
             // read single
-            get("/:name", "application/json") { req, res ->
-                val dimension: Dimension? = Dimension.byId(req.params("name"))
+            get("/:index", "application/json") { req, res ->
+                val dimension: Dimension? = Dimension.byId(req.params("index"))
 
                 if (dimension == null) {
                     res.status(404)
