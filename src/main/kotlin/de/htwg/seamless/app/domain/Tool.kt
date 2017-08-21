@@ -37,23 +37,28 @@ data class Tool(
 
 ) : Model() {
 
-    companion object : ToolFinder()
-
     init {
-        this.updateMapView()
-        this.updateRating()
+        this.updateToolData()
     }
+
+    fun test(): String {
+        return "test"
+    }
+    companion object : ToolFinder()
 
     @JsonIgnore
     @Transient
-    var mapView = mutableListOf<MutableList<Dimension>>()
+    var mapView = mutableListOf<MutableList<Property>>()
 
-    fun updateMapView() {
-        this.mapView = this.createMapView()
+    fun updateToolData(): Tool {
+        this.mapView = this.updateMapView()
+        this.updateRating()
+
+        return this
     }
 
-    private fun createMapView(): MutableList<MutableList<Dimension>> {
-        val mapView = mutableListOf<MutableList<Dimension>>()
+    private fun updateMapView(): MutableList<MutableList<Property>> {
+        val mapView = mutableListOf<MutableList<Property>>()
 
         //val dimensions = Dimension.where().orderBy("index").findList()
 
@@ -62,15 +67,15 @@ data class Tool(
         }
 
         this.properties.forEach {
-            for (dimension in it.dimensions) {
-                mapView[dimension.index].add(dimension)
+            for ((index) in it.dimensions) {
+                mapView[index].add(it)
             }
         }
 
         return mapView
     }
 
-    fun updateRating() {
+    private fun updateRating() {
         var stars = 0
 
         this.ratings.forEach {

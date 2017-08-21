@@ -14,8 +14,9 @@ class PageRoutes {
 
     private fun initializeRoutes() {
         get("/") { _, _ ->
+
             val data = TemplateDataContainer(hashMapOf(Pair("home", true)),
-                    Tool.all(), Dimension.all(), Property.all(), Tool.all())
+                    Tool.all().map { it.updateToolData() }, Dimension.all(), Property.all(), Tool.all())
 
             HandlebarsTemplateEngine().render(
                     ModelAndView(data, "map_template.hbs")
