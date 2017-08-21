@@ -1,6 +1,8 @@
 create table dimension (
   name                          varchar(255) not null,
+  index                         integer not null,
   description                   varchar(255) not null,
+  constraint uq_dimension_index unique (index),
   constraint pk_dimension primary key (name)
 );
 
@@ -36,6 +38,7 @@ create table rating (
 create table tool (
   tool_name                     varchar(255) not null,
   description                   varchar(255) not null,
+  rating                        integer not null,
   constraint pk_tool primary key (tool_name)
 );
 

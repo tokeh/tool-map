@@ -10,10 +10,11 @@ import javax.validation.constraints.Size
 @Entity
 data class Dimension(
 
-        @Id
         @NotNull
+        @Column(unique = true)
         val index: Int,
 
+        @Id
         @NotNull
         @Size(max = 200)
         val name: String,
