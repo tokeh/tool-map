@@ -39,9 +39,5 @@ data class Rating(
 
 ) : Model() {
 
-    override fun toString(): String {
-        return "id:$uuid"
-    }
-
     companion object : RatingFinder()
 }
