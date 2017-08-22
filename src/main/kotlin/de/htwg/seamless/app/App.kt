@@ -34,7 +34,7 @@ fun main(args: Array<String>) {
     ToolRoutes()
     DimensionRoutes()
     PropertyRoutes()
-    SearchRoutes()
+    FilterRoutes()
     PageRoutes()
 
     // Exception handling

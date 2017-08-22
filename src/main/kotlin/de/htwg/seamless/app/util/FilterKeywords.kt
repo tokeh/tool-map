@@ -1,6 +1,8 @@
 package de.htwg.seamless.app.util
 
-data class SearchKeywords(
+data class FilterKeywords(
+
+        val toolNames: List<String>,
 
         val dimensions: List<String>,
 
