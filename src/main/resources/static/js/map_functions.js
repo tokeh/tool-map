@@ -21,7 +21,12 @@ function toggle_filter_button_state(btn) {
 
 function filter() {
     mark_filter_buttons();
-    console.debug(get_filter_keywords());
+    var filter_keywords = get_filter_keywords();
+
+    $.post("/filter", JSON.stringify(filter_keywords),
+        function (data) {
+            $("#tool-map").html(data)
+    });
 }
 
 function mark_filter_buttons() {
@@ -59,7 +64,11 @@ function mark_filter_buttons() {
 
 // Iterate over all filter buttons and return list of filter keywords
 function get_filter_keywords() {
-    var keyword_list = [];
+    var keyword_json = {
+        "toolNames": [],
+        "dimensions": [],
+        "properties": []
+    };
 
     $(".btn-filter").map(function () {
         if (this.classList.contains(checked_button)) {
@@ -70,9 +79,15 @@ function get_filter_keywords() {
                 keyword = keyword.substring(0, keyword.indexOf('<'));
             }
 
-            keyword_list.push(keyword);
+            if(this.classList.contains("btn-filter-tool")) {
+                keyword_json.toolNames.push(keyword)
+            } else if (this.classList.contains("btn-filter-dimension")) {
+                keyword_json.dimensions.push(keyword)
+            } else if (this.classList.contains("btn-filter-property")) {
+                keyword_json.properties.push(keyword)
+            }
         }
     });
 
-    return keyword_list;
+    return keyword_json;
 }

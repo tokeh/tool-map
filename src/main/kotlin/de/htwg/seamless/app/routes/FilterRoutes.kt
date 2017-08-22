@@ -21,22 +21,31 @@ class FilterRoutes {
             val tools: MutableSet<Tool> = mutableSetOf()
 
             filterKeywords.toolNames.forEach {
-                Tool.where().toolName.contains(it).findList()
+                tools.addAll(Tool.where().toolName.icontains(it).findList())
             }
 
             filterKeywords.properties.forEach {
-                Tool.where().properties.name.contains(it).findList()
+                tools.addAll(Tool.where().properties.name.icontains(it).findList())
             }
 
             filterKeywords.dimensions.forEach {
-                Tool.where().properties.dimensions.name.contains(it).findList()
+                tools.addAll(Tool.where().properties.dimensions.name.icontains(it).findList())
+            }
+
+            if (filterKeywords.toolNames.isEmpty()
+                    && filterKeywords.dimensions.isEmpty()
+                    && filterKeywords.properties.isEmpty()) {
+
+                tools.addAll(Tool.all())
             }
 
             val dimensions = Dimension.where().index.asc().findList()
-            val data = TemplateDataContainer(tools = tools.toList().map { it.updateToolData() }, dimensions = dimensions)
+            val data = TemplateDataContainer(
+                    tools = tools.toList().sortedBy(Tool::toolName).map { it.updateToolData() }
+                    , dimensions = dimensions)
 
-            println(HandlebarsTemplateEngine().render(
-                    ModelAndView(data, "map_template.hbs")))
+            HandlebarsTemplateEngine().render(
+                    ModelAndView(data, "partials/map_tool_partial.hbs"))
         }
     }
 }
