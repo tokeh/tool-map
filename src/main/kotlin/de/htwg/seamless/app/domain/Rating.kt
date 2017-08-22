@@ -5,7 +5,6 @@ import de.htwg.seamless.app.domain.finder.RatingFinder
 import io.ebean.Model
 import org.jetbrains.annotations.NotNull
 import java.time.LocalDate
-import java.time.LocalDateTime
 import java.util.*
 import javax.persistence.Entity
 import javax.persistence.Id
