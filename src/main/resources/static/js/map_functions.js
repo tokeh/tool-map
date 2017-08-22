@@ -1,5 +1,5 @@
-var unchecked_button = "btn-outline-default";
-var checked_button = "btn-default";
+var unchecked_button = "btn-outline-cyan";
+var checked_button = "btn-cyan";
 var filter_button = "btn-outline-danger";
 
 function toggle_filter_button_state(btn) {
