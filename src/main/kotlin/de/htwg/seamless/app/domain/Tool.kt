@@ -53,8 +53,6 @@ data class Tool(
     private fun updateMapView(): MutableList<MutableList<Property>> {
         val mapView = mutableListOf<MutableList<Property>>()
 
-        //val dimensions = Dimension.where().orderBy("index").findList()
-
         for (idx in 0 until Dimension.all().size) {
             mapView.add(mutableListOf())
         }
