@@ -32,7 +32,8 @@
         <slf4j.version>1.7.25</slf4j.version>
         <junit.version>4.12</junit.version>
 
-        <tiles.maven.version>2.8</tiles.maven.version>
+        <tiles.maven.version>2.10</tiles.maven.version>
+        <tiles.ebean.enhancement.version>2.9</tiles.ebean.enhancement.version>
         <maven.clean.version>3.0.0</maven.clean.version>
     </properties>
 
@@ -157,7 +158,7 @@
                 <groupId>org.jetbrains.kotlin</groupId>
                 <version>${kotlin.maven.version}</version>
                 <executions>
-                    <execution>
+                    <!--<execution>
                         <id>kapt</id>
                         <goals>
                             <goal>kapt</goal>
@@ -174,7 +175,7 @@
                                 </annotationProcessorPath>
                             </annotationProcessorPaths>
                         </configuration>
-                    </execution>
+                    </execution>-->
 
                     <execution>
                         <id>compile</id>
@@ -210,7 +211,7 @@
                 <extensions>true</extensions>
                 <configuration>
                     <tiles>
-                        <tile>io.ebean.tile:enhancement:${tiles.maven.version}</tile>
+                        <tile>io.ebean.tile:enhancement:${tiles.ebean.enhancement.version}</tile>
                     </tiles>
                 </configuration>
             </plugin>
