@@ -37,13 +37,6 @@ data class Tool(
 
 ) : Model() {
 
-    init {
-        this.updateToolData()
-    }
-
-    fun test(): String {
-        return "test"
-    }
     companion object : ToolFinder()
 
     @JsonIgnore
