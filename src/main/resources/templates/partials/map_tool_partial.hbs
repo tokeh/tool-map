@@ -1,20 +1,20 @@
-<div id="tool-map" class="col-md-12">
+<div id="tool-map" class="col-lg-12">
     <div class="row">
         <h3>Tool Map</h3>
     </div>
 
     <div class="row row-map-title">
-        <div class="col-md-2 d-none d-md-block">
+        <div class="col-lg-2 d-none d-lg-block">
             <h5>Tool Name</h5>
         </div>
         {{#each this.dimensions}}
-            <div class="col-md d-none d-md-block"><h5>{{name}}</h5></div>
+            <div class="col-lg d-none d-lg-block"><h5>{{name}}</h5></div>
         {{/each}}
     </div>
 
     {{#each this.tools}}
         <div class="row">
-            <div class="col-md-2 d-none d-md-block card map-card">
+            <div class="col-lg-2 d-none d-lg-block card map-card">
                 <div class="card-body ">
                     <div class="card-title">
                         <h5>{{toolName}}</h5>
@@ -22,11 +22,11 @@
                 </div>
             </div>
 
-            <div class="col-md-10 d-none d-md-block card map-card">
+            <div class="col-lg-10 d-none d-lg-block card map-card">
                 <div class="card-body">
                     <div class="row">
                         {{#each mapView}}
-                            <div class="col-md">
+                            <div class="col-lg">
                                 {{#each this}}
                                     {{name}}
                                 {{/each}}
@@ -38,7 +38,7 @@
         </div>
 
         <div class="row">
-            <div class="col-sm-12 d-sm-block d-md-none card map-card">
+            <div class="col-sm-12 d-sm-block d-lg-none card map-card">
                 <div class="card-body ">
                     <div class="card-title">
                         <h4>{{toolName}}</h4>
