@@ -8,7 +8,7 @@
         <div id="main-container" class="container-fluid">
             <div class="row">
                 <div id="filter-col" class="col-md-9">
-                    <div class="row">
+                    <div class="row info-row">
                         <h1>Seamless Learning Tool Map</h1>
                         This is a Seamless Learning Tool Map. It provides information about tool that can be used to
                         eliminate seams in learning environments. You can either browse through the map as a whole, or you can
@@ -34,10 +34,11 @@
                     {{> partials/map_favourites_partial.hbs}}
                 </div>
             </div>
-
-            <div id="tool-map">
+            <div class="row tool-map">
                 {{> partials/map_tool_partial.hbs}}
             </div>
+
+
         </div>
 
         {{> partials/scripts.hbs}}

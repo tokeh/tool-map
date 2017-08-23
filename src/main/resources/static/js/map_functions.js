@@ -25,7 +25,7 @@ function filter() {
 
     $.post("/filter", JSON.stringify(filter_keywords),
         function (data) {
-            $("#tool-map").html(data)
+            $(".tool-map").html(data)
     });
 }
 
