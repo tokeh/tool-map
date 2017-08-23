@@ -6,20 +6,19 @@
         {{> partials/header.hbs}}
 
         <div id="main-container" class="container-fluid">
-            <div class="row">
+            <div class="row info-row">
+                <h1>Seamless Learning Tool Map</h1>
+                This is a Seamless Learning Tool Map. It provides information about tool that can be used to
+                eliminate seams in learning environments. You can either browse through the map as a whole, or you can
+                filter it by selecting the filter buttons. In order to find the necessary filter buttons faster, you can
+                enter keywords into the search field. The three best rated tools can be seen on the right.
+            </div>
+            <div class="row filter-row">
                 <div id="fav-col" class="col-md-3 push-md-9">
                     {{> partials/map_favourites_partial.hbs}}
                 </div>
-                
-                <div id="filter-col" class="col-md-9 pull-md-3">
-                    <div class="row info-row">
-                        <h1>Seamless Learning Tool Map</h1>
-                        This is a Seamless Learning Tool Map. It provides information about tool that can be used to
-                        eliminate seams in learning environments. You can either browse through the map as a whole, or you can
-                        filter it by selecting the filter buttons. In order to find the necessary filter buttons faster, you can
-                        enter keywords into the search field. The three best rated tools can be seen on the right.
-                    </div>
 
+                <div id="filter-col" class="col-md-9 pull-md-3">
                     <div id="filter-keywords" class="row md-form">
                         <input type="text" id="filter_search" class="form-control" oninput="filter()">
                         <label for="filter_search" class="">Filter keywords</label>

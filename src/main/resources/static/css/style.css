@@ -3,7 +3,11 @@
 }
 
 .info-row {
-    padding-right: 2em;
+    margin-top: 1em;
+}
+
+.filter-row {
+    margin-top: 3em;
 }
 
 #filter-col {
@@ -11,7 +15,6 @@
 }
 
 #filter-keywords {
-    margin-top: 5em;
     margin-right: 3em;
 }
 
