@@ -1,0 +1,7 @@
+<div>
+    <h3>Tools</h3>
+    {{#each this.tools}}
+        <button type="button" class="btn btn-filter btn-filter-tool btn-outline-cyan waves-effect"
+                onclick="toggle_filter_button_state(this)">{{toolName}}</button>
+    {{/each}}
+</div>
