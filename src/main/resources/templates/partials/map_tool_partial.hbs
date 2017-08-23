@@ -14,10 +14,10 @@
 
     {{#each this.tools}}
         <div class="row">
-            <div class="col-md-2 card map-card">
+            <div class="col-md-2 d-none d-md-block card map-card">
                 <div class="card-body ">
                     <div class="card-title">
-                        <h5>{{toolName}}</h5>
+                        <h4>{{toolName}}</h4>
                     </div>
                 </div>
             </div>
@@ -26,13 +26,30 @@
                 <div class="card-body">
                     <div class="row">
                         {{#each mapView}}
-                            <div class="col-md d-none d-md-block">
+                            <div class="col-md">
                                 {{#each this}}
                                     {{name}}
                                 {{/each}}
                             </div>
                         {{/each}}
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 d-sm-block d-md-none card map-card">
+                <div class="card-body ">
+                    <div class="card-title">
+                        <h4>{{toolName}}</h4>
+                    </div>
+                    {{#each mapView}}
+                        {{#each this}}
+                            <p>
+                                {{name}}
+                            </p>
+                        {{/each}}
+                    {{/each}}
                 </div>
             </div>
         </div>
