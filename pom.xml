@@ -14,9 +14,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <ebean-maven-plugin.args>debug=1</ebean-maven-plugin.args>
 
-        <kotlin.version>1.1.4</kotlin.version>
+        <kotlin.version>1.1.4-2</kotlin.version>
         <kotlin.compiler.jvmTarget>1.8</kotlin.compiler.jvmTarget>
-        <kotlin.maven.version>1.1.4</kotlin.maven.version>
+        <kotlin.maven.version>1.1.4-2</kotlin.maven.version>
 
         <sparkjava.version>2.6.0</sparkjava.version>
         <spark.kotlin.version>1.0.0-alpha</spark.kotlin.version>
