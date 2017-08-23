@@ -33,6 +33,10 @@
     margin-right: 3em;
 }
 
+.btn-filter-toolname {
+    display: none;
+}
+
 #fav-col {
     padding-top: 2em;
 }

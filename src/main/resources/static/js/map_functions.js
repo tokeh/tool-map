@@ -3,16 +3,21 @@ var checked_button = "btn-cyan";
 var filter_button = "btn-outline-danger";
 
 function toggle_filter_button_state(btn) {
-    // Check button if unchecked or used as filter
+    // Check if button is unchecked or used as filter
     if (btn.classList.contains(unchecked_button) || btn.classList.contains(filter_button)) {
         $(btn).removeClass(unchecked_button);
         $(btn).removeClass(filter_button);
         $(btn).addClass(checked_button);
 
-    // Uncheck button if it is checked
+    // Uncheck button when it is checked
     } else {
         $(btn).removeClass(checked_button);
         $(btn).addClass(unchecked_button);
+
+        // Check if button is tool-name-filter-button -> invisible
+        if (btn.classList.contains("btn-filter-toolname")) {
+            $(btn).css('display', 'none');
+        }
     }
 
     // Rerun button filter to check buttons that are used as filters
@@ -39,6 +44,11 @@ function mark_filter_buttons() {
             if (this.classList.contains(filter_button)) {
                 $(this).removeClass(filter_button);
                 $(this).addClass(unchecked_button);
+
+                // Check if button is tool-name-filter-button -> invisible
+                if (this.classList.contains("btn-filter-toolname")) {
+                    $(this).css('display', 'none');
+                }
             }
             return;
         }
@@ -50,13 +60,23 @@ function mark_filter_buttons() {
             if (this.classList.contains(unchecked_button)) {
                 $(this).removeClass(unchecked_button);
                 $(this).addClass(filter_button);
+
+                // Check if button is tool-name-filter-button -> visible
+                if (this.classList.contains("btn-filter-toolname")) {
+                    $(this).css('display', 'inline');
+                }
             }
 
-            // Button does not contain keyword -> normal border
+        // Button does not contain keyword -> normal border
         } else {
             if (this.classList.contains(filter_button)) {
                 $(this).removeClass(filter_button);
                 $(this).addClass(unchecked_button);
+
+                // Check if button is tool-name-filter-button -> invisible
+                if (this.classList.contains("btn-filter-toolname")) {
+                    $(this).css('display', 'none');
+                }
             }
         }
     });
@@ -79,7 +99,7 @@ function get_filter_keywords() {
                 keyword = keyword.substring(0, keyword.indexOf('<'));
             }
 
-            if(this.classList.contains("btn-filter-tool")) {
+            if(this.classList.contains("btn-filter-toolname")) {
                 keyword_json.toolNames.push(keyword)
             } else if (this.classList.contains("btn-filter-dimension")) {
                 keyword_json.dimensions.push(keyword)
